@@ -1,0 +1,19 @@
+Una cuenta bacaria debe de poseer y contener 
+    IdCuentaBancaria
+    Saldo
+    Propietario
+    Contraseña
+    List<HistorialDeMovimientos> // se ignora por el momento
+
+para realizar una consignacion se debe de tener 
+    idCuentaBancaria -- a la cual se realizara la consignacion 
+    cantidadDepositada
+    origen
+    fecha
+    idCajero // puede cambiar el medio // se ignora por el momento
+
+Para realizar un retiro
+    IdCuentaBancaria
+    Fecha
+    CantidadRetirada
+    IdCajero // puede cambiar el medio // se ignora por el momento como al realizar la consignacaion
