@@ -1,23 +1,32 @@
 
-from DTOs.DTOCuentaBancaria import DTOCuentaBancaria
-from Menu import Menu
-from Servicios.ConsignacionesCajero import *
-from Servicios.ConsignacionesCajero import *
 
-cuentaBancaria = DTOCuentaBancaria(
-    idCuentaBancaria=1,
-    saldo = 0,
-    idPropietario = 1
-    )
+from Menu import Menu
+from Servicios.ConsignacionesCajero import ConsignacionesCajero
+from Servicios.RetirosCajero import RetirosCajero
+from Repositorio.CuentasBancarias import CuentasBancarias
+from Utilidades.Pantalla import BorraPantalla
+from time import sleep
+#Instancias de clases 
+menu = Menu()
+consignaciones = ConsignacionesCajero()
+retirosCajeros = RetirosCajero()
+cuentaBancaria = CuentasBancarias(958547333,2323,"Carlos Mora","Contraseña123")
 
 bucleEjecucion:bool = True
-menu = Menu
+
+
+
 while bucleEjecucion:
-    opcionSeleccionada = menu.seleccionarOpcion()
+    opcionSeleccionada = menu.SeleccionarOpcion()     
+    BorraPantalla()
     if(opcionSeleccionada == 1):
-        ConsignacionesCajero(1,0,"Consignacion");
-    else:
-        print ("Opcion 2")
-
-
+        consignaciones.RealizarConsignacion(menu.SeleccionarCantidadIngresada(),cuentaBancaria);
+    if(opcionSeleccionada == 2):
+        retirosCajeros.RealizarRetiro(menu.SeleccionarCantidadIngresada(),cuentaBancaria);
+    if(opcionSeleccionada == 3):     
+        cuentaBancaria.MostrarInformacionUsuario()   
+        bucleEjecucion = False;
+        break
+    sleep(5)
+    BorraPantalla()
 
