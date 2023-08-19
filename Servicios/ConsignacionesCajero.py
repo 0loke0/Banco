@@ -1,12 +1,15 @@
 from datetime import date
+from DTOs.DTOCuentaBancaria import DTOCuentaBancaria
 
 class ConsignacionesCajero:
     
-    def __init__(self,idCuentaBancaria,cantidadDepositada,origen) -> None:
-        self.idCuentaBancaria = idCuentaBancaria
-        self.cantidadDepositada = cantidadDepositada
-        self.origen = origen
-        self.fecha = date.today
+    def __init__(self) -> None:
+        pass
         
-    def realizarConsignacion(cantidad:int):
-        print("Se realiza una consignacion")
+        
+    def RealizarConsignacion(self,cantidad:int,cuentaBancaria):
+        if(type(cuentaBancaria.saldo) == tuple): 
+            cuentaBancaria.saldo = (int(cuentaBancaria.saldo[0]) + cantidad)
+        else:
+            cuentaBancaria.saldo += cantidad   
+        print("Se realiza una consignacion: Saldo actual ", cuentaBancaria.saldo)

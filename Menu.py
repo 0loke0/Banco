@@ -5,7 +5,7 @@ class Menu:
         pass
     
 
-    def seleccionarOpcion() -> int:
+    def SeleccionarOpcion(self) -> int:
         print("Seleccione la opción que desea realizar")
         print("1: Consignar")
         print("2: Retirar")

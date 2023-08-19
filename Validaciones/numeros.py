@@ -8,9 +8,9 @@ def ValidarOpcionNumerica(numero:int, cantidadOpciones:int )-> bool:
     if ( (cantidadOpciones != 0) & (numero > cantidadOpciones )):
         mensajesError += "El numero ingresado no se encuentra dentro de las opciones permitidas: " + str(numero)
     
-    print("mensajesError"+mensajesError)
+    
     if (mensajesError != ""):
-        print(mensajesError)
+        print("mensajesError"+mensajesError)       
         validacionCorreta = False
         
     return validacionCorreta;

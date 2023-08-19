@@ -17,3 +17,8 @@ Para realizar un retiro
     Fecha
     CantidadRetirada
     IdCajero // puede cambiar el medio // se ignora por el momento como al realizar la consignacaion
+
+19/08/2023
+pendiente la validacion de saldo negativo
+pendiente asigar los valores de descuentos y adiciones en el cajero si queda tiempo checharlo con herencia como funcion de movimientos
+si se ha realizado todo estos pasos implementar  los DTO

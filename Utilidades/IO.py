@@ -11,9 +11,10 @@ def leerOpcionNumericaPorTeclado(cantidadOpciones = 0)-> int:
     
     validacionCorrecta = ValidarOpcionNumerica(numero,cantidadOpciones)
     if(validacionCorrecta):
-        print("La opcion ingresada no es un numero "+str(numero))
-        return numero
+        print("se ha selecionado la opcion", str(numero))
+        return numero        
     else: 
+        print("la opcion seleccionada no es valida")
         return -1
 
 

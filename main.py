@@ -1,23 +1,28 @@
 
-from DTOs.DTOCuentaBancaria import DTOCuentaBancaria
+# from DTOs.DTOCuentaBancaria import DTOCuentaBancaria
 from Menu import Menu
-from Servicios.ConsignacionesCajero import *
-from Servicios.ConsignacionesCajero import *
+from Servicios.ConsignacionesCajero import ConsignacionesCajero
+from Servicios.RetirosCajero import RetirosCajero
+from Repositorio.CuentasBancarias import CuentasBancarias
 
-cuentaBancaria = DTOCuentaBancaria(
-    idCuentaBancaria=1,
-    saldo = 0,
-    idPropietario = 1
-    )
+# cuentaBancaria = DTOCuentaBancaria(
+#     idCuentaBancaria=1,
+#     saldo = 0,
+#     )
+
+#Instancias de clases 
+menu = Menu()
+consignaciones = ConsignacionesCajero()
+retirosCajeros = RetirosCajero()
+cuentaBancaria = CuentasBancarias(1,2323,"Carlos Mora","Contraseña123")
 
 bucleEjecucion:bool = True
-menu = Menu
+
+
 while bucleEjecucion:
-    opcionSeleccionada = menu.seleccionarOpcion()
+    opcionSeleccionada = menu.SeleccionarOpcion()
+    print("informacion dentro del selec" +str(opcionSeleccionada))
     if(opcionSeleccionada == 1):
-        ConsignacionesCajero(1,0,"Consignacion");
+        consignaciones.RealizarConsignacion(200,cuentaBancaria);
     else:
-        print ("Opcion 2")
-
-
-
+        retirosCajeros.realizarRetiro(123,cuentaBancaria);
