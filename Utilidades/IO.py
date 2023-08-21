@@ -29,7 +29,7 @@ def leerCantidadMovimiento()-> int:
         return numero        
     else: 
         print("La cantidad ingresada no es valida")
-        return -1
+        return 0
 
 
    
