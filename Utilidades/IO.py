@@ -1,5 +1,5 @@
 from Validaciones.numeros import ValidarOpcionNumerica,ValidarNumeroPositivo
-    
+from Validaciones.textos import ValidarTexto
 
 def leerOpcionNumericaPorTeclado(cantidadOpciones = 0)-> int:
     numero = 0
@@ -16,7 +16,7 @@ def leerOpcionNumericaPorTeclado(cantidadOpciones = 0)-> int:
         print("la opcion seleccionada no es valida")
         return -1
 
-def leerCantidadMovimiento()-> int:
+def leerNumerosPositivos()-> int:
     numero = 0
     try:
         numero = int(input())
@@ -30,6 +30,22 @@ def leerCantidadMovimiento()-> int:
     else: 
         print("La cantidad ingresada no es valida")
         return 0
+    
+def leerTextoPorTeclado()-> str:
+    texto = ""
+    try:
+        texto = str(input())
+    except:
+        raise ValueError("El texto ingresado no es correcto")
+    
+    validacionCorrecta = ValidarTexto(texto);
+    if(validacionCorrecta):
+        return texto        
+    else: 
+        raise ValueError("El texto ingresado no es correcto")
+        
+
+
 
 
    
