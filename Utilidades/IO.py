@@ -1,7 +1,7 @@
 from Validaciones.numeros import ValidarOpcionNumerica,ValidarNumeroPositivo
 from Validaciones.textos import ValidarTexto
 
-def leerOpcionNumericaPorTeclado(cantidadOpciones = 0)-> int:
+def LeerOpcionNumericaPorTeclado(cantidadOpciones = 0)-> int:
     numero = 0
     try:
         numero = int(input())
@@ -16,7 +16,7 @@ def leerOpcionNumericaPorTeclado(cantidadOpciones = 0)-> int:
         print("la opcion seleccionada no es valida")
         return -1
 
-def leerNumerosPositivos()-> int:
+def LeerNumerosPositivos()-> int:
     numero = 0
     try:
         numero = int(input())
@@ -31,7 +31,7 @@ def leerNumerosPositivos()-> int:
         print("La cantidad ingresada no es valida")
         return 0
     
-def leerTextoPorTeclado()-> str:
+def LeerTextoPorTeclado()-> str:
     texto = ""
     try:
         texto = str(input())
