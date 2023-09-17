@@ -1,9 +1,9 @@
-from Utilidades.IO import LeerTextoPorTeclado,LeerNumerosPositivos
-from Utilidades.IO import LeerOpcionNumericaPorTeclado
+from Utilidades.IO import LeerNumerosPositivos
+from Vistas.CuentasBancarias.VistaMenuCuentaBancaria import VistaMenuCuentaBancaria
 from Repositorio.Usuarios import Usuarios
+from Interfaces.Repositorio import ICuentasBancarias
 
-
-class CuentasBancarias(Usuarios):   
+class CuentasBancarias(ICuentasBancarias,Usuarios):   
     
     def __init__(self,usuarios:[Usuarios]) -> None:
         self.idCuentaBancaria : int = 0,
@@ -12,16 +12,7 @@ class CuentasBancarias(Usuarios):
         self.usuariosCreados: [Usuarios] = usuarios
         self.usuario = None
 
-    def MostrarInformacionCuentaBancaria(self):
-        self.usuario.MostrarUsuariosRegistrados();
-        print("==================================================")
-        print("=========== Cuenta bancaria",self.ConvertirTipoDeCuentaBancaria())
-        print("==================================================")
-        print("Su saldo actual de la cuenta",self.idCuentaBancaria,"es:" )
-        print("==================================================")     
-        print(self.saldo[0] if type(self.saldo) == tuple else self.saldo )
-        print("==================================================")
-
+   
 
     def GenerarNuevaCuentaBancaria(self,identifiadorAnterior = 0)-> bool:
         crearNuevoUsuario = True
@@ -31,37 +22,13 @@ class CuentasBancarias(Usuarios):
         self.numeroCedula = LeerNumerosPositivos()    
         validacionCorrecta = self.ValidarExistenciaDeUsuarioCreado(self.numeroCedula);
         if validacionCorrecta:
-            self.tipoCuentaBancaria = self.AsignarTipoDeCuentaBancaria(); 
+            self.tipoCuentaBancaria = VistaMenuCuentaBancaria().AsignarTipoDeCuentaBancaria(); 
             print("==================================================")            
         else:
             crearNuevoUsuario = False
         return crearNuevoUsuario
 
-
-    
-       
-    def AsignarTipoDeCuentaBancaria(self) -> int:
-        print("==================================================")
-        print("==========Selecione el tipo de Cuenta ============")
-        print("==================================================")
-        print("==================================================")
-        print("1: Ahorro")
-        print("2: Corriente")
-        print("3: Nomina")
-        print("==================================================")
-        print("==================================================")
-        return LeerOpcionNumericaPorTeclado(3);
-
-    def ConvertirTipoDeCuentaBancaria(self)-> str:
-        indentificadorTipoCuenta = self.tipoCuentaBancaria
-        if(indentificadorTipoCuenta == 1):
-            return "Ahorro"
-        if(indentificadorTipoCuenta == 2):
-            return "Corriente"
-        if(indentificadorTipoCuenta == 3):
-            return "Nomina"
-        return ""
-    
+        
     def ValidarExistenciaDeUsuarioCreado(self,numeroCedula:int):
         validacionCorrecta = True
         for usuario in self.usuariosCreados:

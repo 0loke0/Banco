@@ -22,3 +22,6 @@ Para realizar un retiro
 pendiente la validacion de saldo negativo
 pendiente asigar los valores de descuentos y adiciones en el cajero si queda tiempo checharlo con herencia como funcion de movimientos
 si se ha realizado todo estos pasos implementar  los DTO
+
+16/09/2023
+

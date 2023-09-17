@@ -1,18 +1,19 @@
 
-from Menu import Menu
+from Vistas.Menu import Menu
 from Servicios.ConsignacionesCajero import ConsignacionesCajero
 from Servicios.RetirosCajero import RetirosCajero
 from Repositorio.CuentasBancarias import CuentasBancarias
 from Repositorio.Usuarios import Usuarios
 from Utilidades.Pantalla import BorraPantalla
+from Vistas.Usuarios.VistaUsuario import VistaUsuarios
+from Vistas.CuentasBancarias.VistaCuentaBancarias import VistaCuentaBancarias
+from Vistas.CuentasBancarias.VistaMenuCuentaBancaria import VistaMenuCuentaBancaria
 from time import sleep
 
 #Instancias de clases 
 menu = Menu()
 consignaciones = ConsignacionesCajero()
 retirosCajeros = RetirosCajero()
-
-
 
 usuariosRegistrados = []
 cuentasBancariasRegistradas = []
@@ -30,7 +31,7 @@ def GenerarUsuarios():
             BorraPantalla()
         if(opcionSeleccionada == 2):
             for usuario in usuariosRegistrados:
-                usuario.MostrarUsuariosRegistrados()
+                VistaUsuarios(usuario).MostrarUsuariosRegistrados()                
             bucleEjecucion = False;
             sleep(5)  
         BorraPantalla()
@@ -41,7 +42,7 @@ def CrearCuentaBancaria():
         opcionSeleccionada = menu.SelecionarOpcionesCrearNuevaCuentaBancaria()     
         BorraPantalla()
         if(opcionSeleccionada == 1):
-            cuentaBancaria = CuentasBancarias(usuariosRegistrados)
+            cuentaBancaria:CuentasBancarias = CuentasBancarias(usuariosRegistrados)
             crearNuevaCuenta = True;
             print("Cuentas bancarias creadas",len(cuentasBancariasRegistradas))
             if len(cuentasBancariasRegistradas) == 0:
@@ -52,7 +53,7 @@ def CrearCuentaBancaria():
                 cuentasBancariasRegistradas.append(cuentaBancaria)
         if(opcionSeleccionada == 2):
             for cuenta in cuentasBancariasRegistradas:
-                cuenta.MostrarInformacionCuentaBancaria()
+                VistaCuentaBancarias(cuenta).MostrarInformacionCuentaBancaria();   
             bucleEjecucion = False;
             sleep(5)      
         BorraPantalla()
@@ -60,7 +61,7 @@ def CrearCuentaBancaria():
 def RealizarAccionesCajero():
     bucleEjecucion:bool = True
     while bucleEjecucion:
-        cuentaBancaria = menu.SeleccionarCuentaBancaria(cuentasBancariasRegistradas)
+        cuentaBancaria = VistaMenuCuentaBancaria().SeleccionarCuentaBancaria(cuentasBancariasRegistradas)
         opcionSeleccionada = menu.SeleccionarOpcionesCajero()       
         BorraPantalla()
         if(opcionSeleccionada == 1):
@@ -68,7 +69,7 @@ def RealizarAccionesCajero():
         if(opcionSeleccionada == 2):
             retirosCajeros.RealizarRetiro(menu.SeleccionarCantidadIngresada(),cuentaBancaria);
         if(opcionSeleccionada == 3):     
-            cuentaBancaria.MostrarInformacionCuentaBancaria()   
+            VistaCuentaBancarias(cuentaBancaria).MostrarInformacionCuentaBancaria();
             bucleEjecucion = False;
             break
         sleep(5)

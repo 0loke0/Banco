@@ -1,21 +1,12 @@
 from Utilidades.IO import LeerTextoPorTeclado,LeerNumerosPositivos
+from Interfaces.Repositorio import IUsuarios
 
-class Usuarios:
+class Usuarios(IUsuarios):
 
     def __init__(self) -> None:
         self.identificador = 0;
         self.nombreCompleto = "";
         self.numeroCedula = 0
-
-    def MostrarUsuariosRegistrados(self):
-        print("==================================================")
-        print("==================================================")
-        print("===== Informacion del Usuario",self.identificador,"==================")
-        print("==================================================")
-        print("Nombre: ",self.nombreCompleto)
-        print("Numero de identificacion: ",self.numeroCedula)
-        print("==================================================")
-        print("==================================================")
 
     def GenerarNuevoUsuario(self,identifiadorAnterior = 0):
         print("==================================================")
@@ -25,5 +16,4 @@ class Usuarios:
         print("Numero de identificacion: ")
         self.numeroCedula = LeerNumerosPositivos()
         print("==================================================")
-
     

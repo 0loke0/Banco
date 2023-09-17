@@ -1,5 +1,6 @@
 from Utilidades.IO import LeerOpcionNumericaPorTeclado,LeerNumerosPositivos
 from Repositorio.CuentasBancarias import CuentasBancarias
+from Vistas.CuentasBancarias.VistaCuentaBancarias import VistaCuentaBancarias
 class Menu:
 
     def __init__(self) -> None:
@@ -45,15 +46,5 @@ class Menu:
         return LeerNumerosPositivos()
 
 
-    def SeleccionarCuentaBancaria(self,cuentasBancarias:[CuentasBancarias])->CuentasBancarias:
-        print("==================================================")
-        print("======Selecione la cuenta Bancaria=====")
-        print("==================================================")
-        for cuentaBancaria in cuentasBancarias:
-            print( cuentaBancaria.idCuentaBancaria," - ",cuentaBancaria.usuario.nombreCompleto," - ",cuentaBancaria.usuario.numeroCedula ," - ", cuentaBancaria.ConvertirTipoDeCuentaBancaria())
-            
-        print("==================================================")
-        print("==================================================")
-        opcionSelecionada = LeerOpcionNumericaPorTeclado(len(cuentasBancarias)+1)        
-        return cuentasBancarias[opcionSelecionada-1]
+    
 
