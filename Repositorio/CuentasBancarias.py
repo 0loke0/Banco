@@ -14,7 +14,7 @@ class CuentasBancarias(ICuentasBancarias,Usuarios):
 
    
 
-    def GenerarNuevaCuentaBancaria(self,identifiadorAnterior = 0)-> bool:
+    def GenerarNuevo(self,identifiadorAnterior = 0)-> bool:
         crearNuevoUsuario = True
         print("==================================================")
         self.idCuentaBancaria = identifiadorAnterior + 1

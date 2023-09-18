@@ -8,7 +8,7 @@ class Usuarios(IUsuarios):
         self.nombreCompleto = "";
         self.numeroCedula = 0
 
-    def GenerarNuevoUsuario(self,identifiadorAnterior = 0):
+    def GenerarNuevo(self,identifiadorAnterior = 0)->bool:
         print("==================================================")
         self.identificador = identifiadorAnterior + 1
         print("Nombre: ")
@@ -16,4 +16,4 @@ class Usuarios(IUsuarios):
         print("Numero de identificacion: ")
         self.numeroCedula = LeerNumerosPositivos()
         print("==================================================")
-    
+        return True;

@@ -1,12 +1,9 @@
 from Utilidades.IO import LeerTextoPorTeclado,LeerNumerosPositivos
 from abc import ABC,abstractmethod
 from Repositorio.Usuarios import Usuarios
-class IVistaUsuarios(ABC):
-    @abstractmethod
-    def MostrarUsuariosRegistrados(self):
-        """"""  
+
     
-class VistaUsuarios(IVistaUsuarios):
+class VistaUsuarios():
     def __init__(self,usuarios:Usuarios) -> None:
         self.usuarios = usuarios;
         

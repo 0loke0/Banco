@@ -26,8 +26,12 @@ def GenerarUsuarios():
         if(opcionSeleccionada == 1):
             usuarios = Usuarios();
             print("Usuarios creados",len(usuariosRegistrados))
-            usuarios.GenerarNuevoUsuario() if len(usuariosRegistrados) == 0 else usuarios.GenerarNuevoUsuario(len(usuariosRegistrados))
-            usuariosRegistrados.append(usuarios)  
+            if len(usuariosRegistrados) == 0:
+                crearNuevoUsuario = usuarios.GenerarNuevo()  
+            else:
+                crearNuevoUsuario = usuarios.GenerarNuevo(len(usuariosRegistrados))
+            if crearNuevoUsuario:
+                usuariosRegistrados.append(usuarios)  
             BorraPantalla()
         if(opcionSeleccionada == 2):
             for usuario in usuariosRegistrados:
@@ -46,9 +50,9 @@ def CrearCuentaBancaria():
             crearNuevaCuenta = True;
             print("Cuentas bancarias creadas",len(cuentasBancariasRegistradas))
             if len(cuentasBancariasRegistradas) == 0:
-                crearNuevaCuenta = cuentaBancaria.GenerarNuevaCuentaBancaria()  
+                crearNuevaCuenta = cuentaBancaria.GenerarNuevo()  
             else:
-                crearNuevaCuenta = cuentaBancaria.GenerarNuevaCuentaBancaria(len(cuentasBancariasRegistradas))
+                crearNuevaCuenta = cuentaBancaria.GenerarNuevo(len(cuentasBancariasRegistradas))
             if crearNuevaCuenta:
                 cuentasBancariasRegistradas.append(cuentaBancaria)
         if(opcionSeleccionada == 2):

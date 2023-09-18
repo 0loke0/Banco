@@ -1,14 +1,15 @@
 from abc import ABC,abstractmethod
 
-class ICuentasBancarias(ABC):    
+class ICreadoresElementosConConsecutivos(ABC):
     @abstractmethod
-    def GenerarNuevaCuentaBancaria(self,identifiadorAnterior = 0)-> bool:
-        """"""
+    def GenerarNuevo(self,identifiadorAnterior = 0):
+        """"""   
+
+class IUsuarios(ICreadoresElementosConConsecutivos,ABC):    
+    pass
+
+class ICuentasBancarias(ICreadoresElementosConConsecutivos,ABC):   
     @abstractmethod
     def ValidarExistenciaDeUsuarioCreado(self,numeroCedula:int):
         """"""
 
-class IUsuarios(ABC):    
-    @abstractmethod
-    def GenerarNuevoUsuario(self,identifiadorAnterior = 0):
-        """"""   
